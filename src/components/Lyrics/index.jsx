@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const Lyrics = ({ lines, currentLineIndex }) => {
+const Lyrics = ({ lines, currentLineIndex, sing }) => {
   const lineRef = useRef();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Lyrics = ({ lines, currentLineIndex }) => {
       {lines.map((line, index) => (
         <p
           ref={index === currentLineIndex ? lineRef : null}
-          className={index === currentLineIndex ? "current-line" : ""}
+          className={index === currentLineIndex && sing ? "current-line" : ""}
           key={index}
         >
           {line.text}
